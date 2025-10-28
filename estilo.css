@@ -3,301 +3,263 @@
    ========================= */
 
 /* ---------- Variables ---------- */
-:root{
-  --azul-900:#0b3d91;
-  --azul-700:#1e3a8a;
-  --azul-600:#2563eb;
-  --azul-500:#3b82f6;
-  --azul-100:#e8f1ff;
+:root {
+  --azul-900: #0b3d91;
+  --azul-700: #1e3a8a;
+  --azul-600: #2563eb;
+  --azul-500: #3b82f6;
+  --azul-100: #e8f1ff;
 
-  --gris-900:#111827;
-  --gris-800:#1f2937;
-  --gris-700:#374151;
-  --gris-600:#4b5563;
-  --gris-400:#9ca3af;
-  --gris-200:#e5e7eb;
+  --gris-900: #111827;
+  --gris-800: #1f2937;
+  --gris-700: #374151;
+  --gris-600: #4b5563;
+  --gris-400: #9ca3af;
+  --gris-200: #e5e7eb;
 
-  --blanco:#ffffff;
+  --blanco: #ffffff;
 }
 
 /* ---------- Reset básico ---------- */
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
   font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
   color: var(--gris-800);
   background: #fff;
   line-height: 1.65;
 }
-img{max-width:100%;display:block}
-a{text-decoration:none;color:inherit}
+img {
+  max-width: 100%;
+  display: block;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
 /* ---------- Helpers ---------- */
-.container{width:min(1100px,92%);margin-inline:auto}
-.hide{display:none}
+.container {
+  width: min(1100px, 92%);
+  margin-inline: auto;
+}
+.hide {
+  display: none;
+}
 
 /* ================================================================
    NAVBAR
    ================================================================ */
-.navbar{
-  position:fixed; inset:0 0 auto 0;
-  width:100%; z-index:1000;
-  background: rgba(0,0,0,.75);
-  backdrop-filter: blur(8px);
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
   color: var(--blanco);
-  display:flex; align-items:center; justify-content:space-between;
-  padding:14px 8%;
-  border-bottom:1px solid rgba(255,255,255,.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 8%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-.navbar h1{font-size:1.1rem;letter-spacing:.08em;font-weight:700}
-.navbar nav a{
-  color:#fff; margin-left:22px; font-weight:600;
-  transition:color .2s ease, opacity .2s ease;
-  opacity:.9;
+.navbar h1 {
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
 }
-.navbar nav a:hover{color:var(--azul-500);opacity:1}
-.navbar nav a.activo{color:var(--azul-500)}
+.navbar nav a {
+  color: #fff;
+  margin-left: 22px;
+  font-weight: 600;
+  transition: color 0.2s ease, opacity 0.2s ease;
+  opacity: 0.9;
+}
+.navbar nav a:hover,
+.navbar nav a.activo {
+  color: var(--azul-500);
+  opacity: 1;
+}
 
-/* corrección: evitar que el contenido quede oculto tras el header fijo */
-main, section, .hero, .subhero, .contenido{scroll-margin-top:72px}
-body:has(.navbar) .push{height:66px} /* se usa en páginas que lo necesiten */
+/* Corrección: evitar que el contenido quede oculto tras el header fijo */
+body {
+  padding-top: 72px;
+}
 
 /* ================================================================
    HERO (index.html)
    ================================================================ */
-.hero{
-  height:100vh; position:relative; display:grid; place-items:center;
-  background: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-  text-align:center; color:#fff;
-}
-.hero .overlay{
-  position:absolute; inset:0;
-  background: linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.55));
-  /* asegúrate de que el contenido quede por encima */
-  z-index:0;
-}
-.hero-content{
-  position:relative; z-index:1; padding:0 18px; max-width:760px;
-  animation: fadeIn .8s ease-out both;
-}
-.hero-content h2{
-  font-size:clamp(28px,6vw,54px);
-  letter-spacing:.06em; line-height:1.1; font-weight:800;
-}
-.hero-content p{
-  margin-top:14px; color:#e5e7eb; font-size:clamp(14px,2.4vw,18px)
-}
-.hero-content button{
-  margin-top:26px; cursor:pointer; border:none;
-  padding:12px 26px; border-radius:12px; font-weight:700;
-  color:#fff; background: linear-gradient(135deg, var(--azul-600), var(--azul-700));
-  box-shadow:0 10px 24px rgba(37,99,235,.35);
-  transition: transform .15s ease, filter .15s ease;
-}
-.hero-content button:hover{transform:translateY(-2px); filter:brightness(1.05)}
-
-/* ================================================================
-   SUBHERO (analisis.html, emprendimientos.html)
-   ================================================================ */
-.subhero{
-  height:60vh; position:relative; display:grid; place-items:center;
-  text-align:center; color:#fff; margin-top:66px; /* separación del navbar */
-}
-.subhero .overlay{
-  position:absolute; inset:0; z-index:0; background:rgba(0,0,0,.55);
-}
-.subhero-content{
-  position:relative; z-index:1; padding:0 18px; max-width:900px;
-  animation: fadeInUp .7s ease-out both;
-}
-.subhero-content h2{
-  font-size:clamp(28px,5vw,48px); letter-spacing:.04em; font-weight:800; margin-bottom:10px
-}
-.subhero-content p{color:#e5e7eb; font-size:clamp(14px,2.2vw,18px)}
-
-/* imágenes específicas */
-.subhero.analisis{
-  background: url('https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-}
-.subhero.emprendimientos{
-  background: url('https://cdn.pixabay.com/photo/2017/07/31/11/21/arrow-2550221_1920.jpg') center/cover no-repeat;
-}
-
-/* ================================================================
-   CONTENIDO (bloques de texto, listas, etc.)
-   ================================================================ */
-.contenido{
-  padding:56px 10% 80px;
-}
-.contenido h3{
-  color:var(--azul-900); font-size:clamp(20px,3vw,32px);
-  margin-bottom:16px; text-align:center; font-weight:800;
-}
-.contenido p{color:var(--gris-700); font-size:16px; margin:6px 0 10px}
-.contenido ul{margin:10px 0 18px 22px; color:var(--gris-700)}
-.contenido li{margin:6px 0}
-
-/* ================================================================
-   CARDS (analisis.html)
-   ================================================================ */
-.cards{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
-  gap:22px; margin:32px 0 6px;
-}
-.card{
-  background:#fff; border:1px solid var(--gris-200);
-  border-radius:16px; padding:22px; text-align:center;
-  box-shadow:0 8px 22px rgba(17,24,39,.06);
-  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-}
-.card:hover{
-  transform: translateY(-6px);
-  box-shadow:0 14px 32px rgba(11,61,145,.18);
-  border-color:#dbeafe;
-}
-.card img{width:64px; height:64px; object-fit:contain; margin:2px auto 12px}
-.card h4{color:var(--azul-900); font-size:18px; margin-bottom:6px}
-.card p{color:var(--gris-700); font-size:14.5px}
-
-/* ================================================================
-   BOTONES (primario / secundario / dobles centrados)
-   ================================================================ */
-.boton-centro{ text-align:center; margin-top:22px }
-.boton-centro button{
-  appearance:none; border:none; cursor:pointer;
-  padding:12px 22px; border-radius:12px; font-weight:700;
-  color:#fff; background:linear-gradient(135deg,var(--azul-600),var(--azul-700));
-  box-shadow:0 10px 22px rgba(37,99,235,.30);
-  transition: transform .15s ease, filter .15s ease;
-}
-.boton-centro button:hover{ transform:translateY(-2px); filter:brightness(1.06) }
-
-/* versión dos botones */
-.boton-centro.doble{ display:flex; justify-content:center; gap:14px; flex-wrap:wrap }
-.boton-centro.doble .secundario{
-  background:#fff; color:var(--azul-900);
-  border:2px solid var(--azul-900); box-shadow:none;
-}
-.boton-centro.doble .secundario:hover{
-  background:var(--azul-900); color:#fff;
-}
-
-/* ================================================================
-   FOOTER
-   ================================================================ */
-footer{
-  background:var(--gris-900); color:#9ca3af; text-align:center;
-  padding:22px 10%; font-size:.95rem
-}
-
-/* ================================================================
-   RESPONSIVE NAV (opcional simple)
-   ================================================================ */
-@media (max-width:768px){
-  .navbar{padding:12px 5%}
-  .navbar h1{font-size:1rem}
-  .navbar nav a{margin-left:14px}
-  .subhero{height:56vh}
-}
-
-/* ================================================================
-   ANIMACIONES
-   ================================================================ */
-@keyframes fadeIn{
-  from{opacity:0; transform:translateY(4px)}
-  to{opacity:1; transform:translateY(0)}
-}
-@keyframes fadeInUp{
-  from{opacity:0; transform:translateY(12px)}
-  to{opacity:1; transform:translateY(0)}
-}
-
-/* ===== EMPRENDIMIENTOS ===== */
-.cards-grid {
+.hero {
+  height: 100vh;
+  position: relative;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 25px;
-  margin-top: 40px;
+  place-items: center;
+  background: url("https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1920&q=80") center/cover no-repeat;
+  text-align: center;
+  color: #fff;
 }
-.card-pro {
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 6px 22px rgba(17, 24, 39, 0.08);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
+.hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 0;
 }
-.card-pro img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 0 18px;
+  max-width: 760px;
+  animation: fadeIn 0.8s ease-out both;
 }
-.card-pro .info {
-  padding: 18px 20px;
+.hero-content h2 {
+  font-size: clamp(28px, 6vw, 54px);
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+  font-weight: 800;
 }
-.card-pro h4 {
-  color: var(--azul-900);
-  font-size: 1.3rem;
+.hero-content p {
+  margin-top: 14px;
+  color: #e5e7eb;
+  font-size: clamp(14px, 2.4vw, 18px);
+}
+.hero-content button {
+  margin-top: 26px;
+  cursor: pointer;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 12px;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, var(--azul-600), var(--azul-700));
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.35);
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+.hero-content button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+/* ================================================================
+   SUBHERO
+   ================================================================ */
+.subhero {
+  height: 60vh;
+  position: relative;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: #fff;
+  margin-top: 66px;
+}
+.subhero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 0;
+}
+.subhero-content {
+  position: relative;
+  z-index: 1;
+  padding: 0 18px;
+  max-width: 900px;
+  animation: fadeInUp 0.7s ease-out both;
+}
+.subhero-content h2 {
+  font-size: clamp(28px, 5vw, 48px);
+  letter-spacing: 0.04em;
+  font-weight: 800;
   margin-bottom: 10px;
 }
-.card-pro ul {
-  list-style-type: disc;
-  padding-left: 20px;
-  color: var(--gris-700);
-}
-.card-pro:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 14px 32px rgba(11, 61, 145, 0.18);
+.subhero-content p {
+  color: #e5e7eb;
+  font-size: clamp(14px, 2.2vw, 18px);
 }
 
-/* Animación de aparición */
-.cards-grid .card-pro {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: showCard 0.7s ease forwards;
+/* Imágenes específicas */
+.subhero.analisis {
+  background: url("https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&fit=crop&w=1920&q=80") center/cover no-repeat;
 }
-.cards-grid .card-pro:nth-child(1){animation-delay:.1s}
-.cards-grid .card-pro:nth-child(2){animation-delay:.2s}
-.cards-grid .card-pro:nth-child(3){animation-delay:.3s}
-.cards-grid .card-pro:nth-child(4){animation-delay:.4s}
-.cards-grid .card-pro:nth-child(5){animation-delay:.5s}
-
-@keyframes showCard {
-  to {opacity:1; transform:translateY(0);}
-}
-/* ===== EDUCACIÓN E INNOVACIÓN ===== */
-.subhero.educacion {
-  background: url('https://cdn.pixabay.com/photo/2016/11/29/09/32/education-1866739_1280.jpg') center/cover no-repeat;
-}
-.subhero.educacion .overlay {
-  background: rgba(11, 61, 145, 0.6);
+.subhero.emprendimientos {
+  background: url("https://cdn.pixabay.com/photo/2017/07/31/11/21/arrow-2550221_1920.jpg") center/cover no-repeat;
 }
 
-/* Ajustes visuales */
+/* ================================================================
+   CONTENIDO
+   ================================================================ */
+.contenido {
+  padding: 56px 10% 80px;
+}
+.contenido h3 {
+  color: var(--azul-900);
+  font-size: clamp(20px, 3vw, 32px);
+  margin-bottom: 16px;
+  text-align: center;
+  font-weight: 800;
+}
 .contenido p {
-  max-width: 900px;
-  margin: 0 auto 30px;
+  color: var(--gris-700);
+  font-size: 16px;
+  margin: 6px 0 10px;
   text-align: center;
 }
-
-/* Animación de aparición para las tarjetas */
-.cards-grid .card-pro {
-  opacity: 0;
-  transform: translateY(25px);
-  animation: showCard 0.8s ease forwards;
+.contenido ul {
+  margin: 10px 0 18px 22px;
+  color: var(--gris-700);
 }
-.cards-grid .card-pro:nth-child(1) { animation-delay: 0.1s; }
-.cards-grid .card-pro:nth-child(2) { animation-delay: 0.2s; }
-.cards-grid .card-pro:nth-child(3) { animation-delay: 0.3s; }
-.cards-grid .card-pro:nth-child(4) { animation-delay: 0.4s; }
-.cards-grid .card-pro:nth-child(5) { animation-delay: 0.5s; }
-
-@keyframes showCard {
-  to { opacity: 1; transform: translateY(0); }
+.contenido li {
+  margin: 6px 0;
 }
-/* ===== BOTÓN "VER EDUCACIÓN" ===== */
+
+/* ================================================================
+   CARDS
+   ================================================================ */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+  margin: 32px 0 6px;
+}
+.card {
+  background: #fff;
+  border: 1px solid var(--gris-200);
+  border-radius: 16px;
+  padding: 22px;
+  text-align: center;
+  box-shadow: 0 8px 22px rgba(17, 24, 39, 0.06);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 32px rgba(11, 61, 145, 0.18);
+  border-color: #dbeafe;
+}
+.card img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  margin: 2px auto 12px;
+}
+.card h4 {
+  color: var(--azul-900);
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+.card p {
+  color: var(--gris-700);
+  font-size: 14.5px;
+}
+
+/* ================================================================
+   BOTONES
+   ================================================================ */
 button.secundario {
   background: #ffffff;
   color: #0b3d91;
@@ -308,21 +270,16 @@ button.secundario {
   font-weight: 600;
   transition: all 0.3s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  position: relative;
   float: right;
   margin-top: -20px;
   margin-right: 20px;
 }
-
-/* Efecto hover */
 button.secundario:hover {
   background: #0b3d91;
   color: #ffffff;
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(11, 61, 145, 0.3);
 }
-
-/* Ajuste para pantallas pequeñas */
 @media (max-width: 768px) {
   button.secundario {
     float: none;
@@ -330,3 +287,39 @@ button.secundario:hover {
     margin: 25px auto 0;
   }
 }
+
+/* ================================================================
+   FOOTER
+   ================================================================ */
+footer {
+  background: var(--gris-900);
+  color: #9ca3af;
+  text-align: center;
+  padding: 22px 10%;
+  font-size: 0.95rem;
+}
+
+/* ================================================================
+   ANIMACIONES
+   ================================================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
