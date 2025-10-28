@@ -3,24 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Análisis de Necesidades | Conecta Mercado</title>
-  <link rel="stylesheet" href="css/estilo.css">
-
-
+  <title>Educación e Innovación | Conecta Mercado</title>
+  <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-  <header class="barra-de-navegacion">
+
+  <!-- NAVBAR -->
+  <header class="navbar">
     <h1>CONECTA MERCADO</h1>
     <nav>
-      <a href="indice.html">Inicio</a>
-      <a href="analisis.html" class="activo">Análisis</a>
+      <a href="index.html">Inicio</a>
+      <a href="analisis.html">Análisis</a>
       <a href="emprendimientos.html">Emprendimientos</a>
-      <a href="educacion.html">Educación</a>
+      <a href="educacion.html" class="activo">Educación</a>
     </nav>
   </header>
 
-
-  <!-- HERO -->
+  <!-- HERO / SUBHERO -->
   <section class="subhero educacion">
     <div class="overlay"></div>
     <div class="subhero-content">
@@ -30,70 +29,72 @@
   </section>
 
   <!-- CONTENIDO -->
-  <section class="contenido">
+  <main class="contenido">
     <h3>Oportunidades en Educación e Innovación</h3>
     <p>
-      La educación moderna combina la tecnología, la creatividad y la colaboración para generar experiencias de aprendizaje accesibles y efectivas.
+      La educación moderna combina la tecnología, la creatividad y la colaboración 
+      para generar experiencias de aprendizaje accesibles y efectivas. 
       Estos son algunos de los emprendimientos más prometedores en este sector:
     </p>
 
+    <!-- TARJETAS -->
     <div class="cards-grid">
-      <!-- Plataforma de aprendizaje -->
       <div class="card-pro">
-        <img src="https://moodlecentro.es/wp-content/uploads/2023/11/Que-son-las-plataformas-educativas-1024x768.webp" alt="Plataformas de aprendizaje" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Moodle-logo.svg" alt="Moodle">
         <div class="info">
-          <h4>Plataformas de Aprendizaje</h4>
-          <p>Desarrollo de cursos en línea y plataformas interactivas con recursos multimedia.</p>
+          <h4>Plataformas LMS (Moodle, Edmodo)</h4>
+          <ul>
+            <li>Facilitan el aprendizaje remoto y la gestión de cursos virtuales.</li>
+            <li>Ideales para instituciones educativas y formación empresarial.</li>
+          </ul>
         </div>
       </div>
 
-      <!-- Tutorías personalizadas -->
       <div class="card-pro">
-        <img src="https://thumbs.dreamstime.com/b/clases-particulares-y-su-educaci%C3%B3n-en-l%C3%ADnea-aprendiendo-al-profesor-de-la-educaci%C3%B3n-89362139.jpg" alt="Tutorías Personalizadas" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Google_Classroom_icon.svg" alt="Google Classroom">
         <div class="info">
-          <h4>Tutorías Personalizadas</h4>
-          <p>Asesorías académicas adaptadas a las necesidades y ritmo del estudiante.</p>
+          <h4>Google Classroom</h4>
+          <ul>
+            <li>Permite organizar clases virtuales y actividades interactivas.</li>
+            <li>Integración con Google Workspace para educación.</li>
+          </ul>
         </div>
       </div>
 
-      <!-- Realidad aumentada educativa -->
       <div class="card-pro">
-        <img src="https://datos.gob.es/sites/default/files/styles/wide/public/blog/image/realidad_aumentada.jpg?itok=zvULEu8b" alt="Realidad Aumentada Educativa" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Schoology_logo.svg" alt="Schoology">
         <div class="info">
-          <h4>Realidad Aumentada Educativa</h4>
-          <p>Integración de herramientas inmersivas que transforman la enseñanza tradicional.</p>
+          <h4>Schoology y Canvas</h4>
+          <ul>
+            <li>Ofrecen gestión de aprendizaje avanzada y análisis de progreso.</li>
+            <li>Utilizadas en universidades y programas de capacitación profesional.</li>
+          </ul>
         </div>
       </div>
 
-      <!-- Inteligencia Artificial -->
       <div class="card-pro">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJR0Vd4qbYWVTeglhyShTmsfxrMdAxijGaug&s" alt="Inteligencia Artificial" />
+        <img src="https://cdn-icons-png.flaticon.com/512/3069/3069058.png" alt="Innovación educativa">
         <div class="info">
-          <h4>Inteligencia Artificial Educativa</h4>
-          <p>Uso de IA para personalizar el aprendizaje y evaluar el progreso en tiempo real.</p>
-        </div>
-      </div>
-
-      <!-- Cursos corporativos -->
-      <div class="card-pro">
-        <img src="https://www.shutterstock.com/image-vector/isometric-vector-business-people-presentation-600nw-2484157419.jpg" alt="Cursos Corporativos" />
-        <div class="info">
-          <h4>Capacitación Corporativa</h4>
-          <p>Programas de formación empresarial para mejorar competencias digitales y liderazgo.</p>
+          <h4>Innovación y Tecnología</h4>
+          <ul>
+            <li>Inteligencia Artificial para personalizar la enseñanza.</li>
+            <li>Aplicaciones móviles educativas interactivas.</li>
+          </ul>
         </div>
       </div>
     </div>
 
-    <div class="boton-centro">
-      <button onclick="window.location.href='formulario.html'">Realiza tu análisis educativo</button>
+    <!-- BOTÓN -->
+    <div class="boton-centro doble">
+      <button onclick="window.location.href='formulario.html'">Ver más proyectos</button>
+      <button class="secundario" onclick="window.location.href='analisis.html'">Ver análisis</button>
     </div>
-  </section>
+  </main>
 
+  <!-- FOOTER -->
   <footer>
     © 2025 CONECTA MERCADO — Todos los derechos reservados
   </footer>
+
 </body>
 </html>
-
-
-
